@@ -204,7 +204,7 @@ INSERT INTO pessoa_endereco (id, pessoa_id, endereco_id, tipo) VALUES
 (11, 5, 9, 'COMERCIAL'),
 (12, 5, 10, 'RESIDENCIAL');
 
-12 - Faça um select que retorne o nome das pessoas e seus respectivos endereços (com cidade e estado). Ordene por nome de pessoa, nome do estado e nome da cidade
+12 ----------------------------------------------------------
 
 SELECT p.nome as 'Nome',
 	   e.logradouro as 'Endereço',
@@ -217,7 +217,10 @@ WHERE p.id = pe.id
   and uf.id = cid.estado_id
  ORDER by uf.uf, p.nome, cid.nome
 
-13 - remova todos as pessoas que tem endereço da cidade de Ribeirão Preto
+13 ----------------------------------------------------------
+
+DELETE FROM pessoa, cidade
+WHERE cidade.id = 10
 
 14 ----------------------------------------------------------
 
