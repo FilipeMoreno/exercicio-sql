@@ -219,8 +219,12 @@ WHERE p.id = pe.id
 
 13 ----------------------------------------------------------
 
-DELETE FROM pessoa, cidade
-WHERE cidade.id = 10
+DELETE FROM pessoa WHERE pessoa.id in (SELECT pess.id 
+                          FROM pessoa pess, pessoa_endereco pe, cidade cid, endereco e 
+                          WHERE pess.id = pe.pessoa_id 
+                          AND pe.endereco_id = e.id 
+                          AND e.cidade_id = cid.id 
+                          AND cid.id = 10);
 
 14 ----------------------------------------------------------
 
